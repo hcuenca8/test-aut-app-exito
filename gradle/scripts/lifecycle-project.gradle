@@ -1,0 +1,27 @@
+/**
+ * Coordinacion de todas las tareas que engloban el ciclo de vida del proyecto
+ */
+
+/**
+ * Habilita para el contexto de gradle, las tareas preparadas/personalizadas diseñadas/adaptadas para el proyecto
+ */
+apply from: "gradle/scripts/tasks/project-tasks.gradle"
+
+
+/**
+ * clearReports antes de test
+ * limpia/elimina la generacion del reporte anterior (en caso de existir)
+ */
+test.dependsOn(clearReports)
+
+/**
+ * aggregate despues de test
+ * crea el index.html para acceder al reporte, usando tarea aggregate del plugin serenity-gradle
+ */
+test.finalizedBy(aggregate)
+
+/**
+ * generateFilmTicket despues de aggregate
+ * genera/hablita un acceso directo a la visualizacion del reporte
+ */
+aggregate.finalizedBy(generateFilmTicket)

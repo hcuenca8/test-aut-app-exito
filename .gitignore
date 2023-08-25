@@ -1,0 +1,15 @@
+#*.jar
+.gradle/
+#gradlew
+#gradlew.bat
+target/
+build/
+.idea/
+.DS_Store
+/out
+*.apk
+*.ipa
+
+*.drawio.bkp
+*.drawio.dtmp
+

@@ -1,0 +1,20 @@
+# shell IDE
+#   docker-compose up -d
+# url: localhost:8080
+#   initialAdminPassword
+#     shell container
+#       cat /var/jenkins_home/secrets/initialAdminPassword
+#   credentials:
+#     jenkins/jenkins
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+#  ssh-agent:
+#    image: jenkins/ssh-agent
+volumes:
+  jenkins_home:
